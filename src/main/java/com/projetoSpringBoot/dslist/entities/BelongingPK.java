@@ -11,25 +11,25 @@ public class BelongingPK {
 
 	@ManyToOne
     @JoinColumn(name = "game_id")
-    private com.projetoSpringBoot.dslist.entities.Game game;
+    private Game game;
 
     @ManyToOne
     @JoinColumn(name = "list_id")
-    private com.projetoSpringBoot.dslist.entities.GameList list;
+    private GameList list;
 
-	public com.projetoSpringBoot.dslist.entities.Game getGame() {
+	public Game getGame() {
 		return game;
 	}
 
-	public void setGame(com.projetoSpringBoot.dslist.entities.Game game) {
+	public void setGame(Game game) {
 		this.game = game;
 	}
 
-	public com.projetoSpringBoot.dslist.entities.GameList getList() {
+	public GameList getList() {
 		return list;
 	}
 
-	public void setList(com.projetoSpringBoot.dslist.entities.GameList list) {
+	public void setList(GameList list) {
 		this.list = list;
 	}
 

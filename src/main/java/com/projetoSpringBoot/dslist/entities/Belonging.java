@@ -11,23 +11,23 @@ import jakarta.persistence.Table;
 public class Belonging {
 
 	@EmbeddedId
-	private com.projetoSpringBoot.dslist.entities.BelongingPK id = new com.projetoSpringBoot.dslist.entities.BelongingPK();
+	private BelongingPK id = new BelongingPK();
 
 	private Integer position;
 
-	public void setGame(com.projetoSpringBoot.dslist.entities.Game game) {
+	public void setGame(Game game) {
 		id.setGame(game);
 	}
 
-	public com.projetoSpringBoot.dslist.entities.Game getGame() {
+	public Game getGame() {
 		return id.getGame();
 	}
 
-	public void setList(com.projetoSpringBoot.dslist.entities.GameList list) {
+	public void setList(GameList list) {
 		id.setList(list);
 	}
 
-	public com.projetoSpringBoot.dslist.entities.GameList getList() {
+	public GameList getList() {
 		return id.getList();
 	}
 
