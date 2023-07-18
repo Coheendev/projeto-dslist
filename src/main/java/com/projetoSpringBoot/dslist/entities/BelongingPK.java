@@ -1,54 +1,52 @@
 package com.projetoSpringBoot.dslist.entities;
 
+import java.util.Objects;
+
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-import java.util.Objects;
-
 @Embeddable
 public class BelongingPK {
 
-    @ManyToOne
+	@ManyToOne
     @JoinColumn(name = "game_id")
-    private Games games;
+    private com.projetoSpringBoot.dslist.entities.Game game;
+
     @ManyToOne
     @JoinColumn(name = "list_id")
-    private GamesList list;
+    private com.projetoSpringBoot.dslist.entities.GameList list;
 
-    public BelongingPK(){}
+	public com.projetoSpringBoot.dslist.entities.Game getGame() {
+		return game;
+	}
 
-    public BelongingPK(Games games, GamesList list) {
-        this.games = games;
-        this.list = list;
-    }
+	public void setGame(com.projetoSpringBoot.dslist.entities.Game game) {
+		this.game = game;
+	}
 
-    public Games getGames() {
-        return games;
-    }
+	public com.projetoSpringBoot.dslist.entities.GameList getList() {
+		return list;
+	}
 
-    public void setGames(Games games) {
-        this.games = games;
-    }
+	public void setList(com.projetoSpringBoot.dslist.entities.GameList list) {
+		this.list = list;
+	}
 
-    public GamesList getList() {
-        return list;
-    }
+	@Override
+	public int hashCode() {
+		return Objects.hash(game, list);
+	}
 
-    public void setList(GamesList list) {
-        this.list = list;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BelongingPK that = (BelongingPK) o;
-        return Objects.equals(games, that.games) && Objects.equals(list, that.list);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(games, list);
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BelongingPK other = (BelongingPK) obj;
+		return Objects.equals(game, other.game) && Objects.equals(list, other.list);
+	}
 }

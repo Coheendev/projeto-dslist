@@ -1,50 +1,49 @@
 package com.projetoSpringBoot.dslist.dto;
 
-
-import com.projetoSpringBoot.dslist.entities.Games;
+import com.projetoSpringBoot.dslist.entities.Game;
 import com.projetoSpringBoot.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
-    private Long id;
-    private String title;
-    private Integer year;
-    private String imgUrl;
-    private String shortDescription;
 
-    public GameMinDTO (){}
+	private Long id;
+	private String title;
+	private Integer year;
+	private String imgUrl;
+	private String shortDescription;
+	
+	public GameMinDTO(Game entity) {
+		id = entity.getId();
+		title = entity.getTitle();
+		year = entity.getYear();
+		imgUrl = entity.getImgUrl();
+		shortDescription = entity.getShortDescription();
+	}
 
-    public GameMinDTO(Games entity) {
-        id = entity.getId();
-        title = entity.getTitle();
-        year = entity.getYear();
-        imgUrl = entity.getImgUrl();
-        this.shortDescription = entity.getShortDescription();
-    }
-    public GameMinDTO(GameMinProjection projection) {
-        id = projection.getId();
-        title = projection.getTitle();
-        year = projection.getYear();
-        imgUrl = projection.getImgUrl();
-        this.shortDescription = projection.getShortDescription();
-    }
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getGameYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public Integer getYear() {
-        return year;
-    }
+	public Integer getYear() {
+		return year;
+	}
 
-    public String getImgUrl() {
-        return imgUrl;
-    }
+	public String getImgUrl() {
+		return imgUrl;
+	}
 
-    public String getShortDescription() {
-        return shortDescription;
-    }
+	public String getShortDescription() {
+		return shortDescription;
+	}
 }
